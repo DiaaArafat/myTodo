@@ -1,7 +1,11 @@
 .App {
   text-align: center;
 }
+.Add{
+  display: inline-flex;
+  flex-direction: column;
 
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +39,33 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.Tasks{
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.table, th, td {
+  border:0.5px solid black;
+  width: 30rem;
+}
+.Search{
+  margin-top:30px ;
+  display: flex;
+  flex-direction: row;
+
+
+  justify-content: center;
+}
+.searchBar{
+  width: 30rem;
+}
+.footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

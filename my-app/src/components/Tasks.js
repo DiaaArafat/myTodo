@@ -1,23 +1,5 @@
 
-const API = [
-    {
-        id: 1,
-        text: 'Task 1',
-        done: "false",
-
-
-    },
-    {
-        id: 2,
-        text: 'Task 2',
-        done: "false",
-
-
-    }
-
-]
-const Tasks = () => {
-
+const Tasks = ({tasksList, onDelete}) => {
     return (
 
         <div className="Tasks">
@@ -30,10 +12,10 @@ const Tasks = () => {
                     <th></th>
                 </tr>
 
-                {API.map((task) => (<tr key={task.id}>
-                    <td> {task.text} </td> <td> {task.done} </td> 
+                {tasksList.map((task) => (<tr key={task.id}>
+                    <td> {task.text} </td> <td> {task.done } </td> 
                     <td><button>Done</button></td> 
-                    <td><button>Delete</button></td>
+                    <td><button onClick={()=> {onDelete(task.id)} }>Delete</button></td>
                 </tr>))}
                     
             </table>

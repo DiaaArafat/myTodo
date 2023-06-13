@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 
 const App = () => {
-
+  const [showTasks,setShowTasks]=useState(true)
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -29,6 +29,10 @@ const App = () => {
 
     setTasks([...tasks,task])
 }
+const showOrHide = () => {
+  
+  setShowTasks(!showTasks)
+}
 
 
   return (
@@ -40,8 +44,8 @@ const App = () => {
         </h1>
     </header>    
     <AddTask onClick = {addTask} />
-      <Search />
-      <Tasks tasksList={tasks} onDelete={deleteTask} />
+      <Search onclick={showOrHide}/>
+      {showTasks && <Tasks tasksList={tasks} onDelete={deleteTask} />}
       <Footer />
     </div>
   );

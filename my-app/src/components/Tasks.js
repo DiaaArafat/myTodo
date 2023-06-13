@@ -1,5 +1,5 @@
 
-const Tasks = ({tasksList, onDelete}) => {
+const Tasks = ({tasksList, onDelete, onDoneClick}) => {
     return (
 
         <div className="Tasks">
@@ -13,8 +13,8 @@ const Tasks = ({tasksList, onDelete}) => {
                 </tr>
 
                 {tasksList.map((task) => (<tr key={task.id}>
-                    <td> {task.text} </td> <td> {task.done } </td> 
-                    <td><button>Done</button></td> 
+                    <td> {task.text} </td> <td> {task.done ? 'Yes' :'No' } </td> 
+                    <td><button onClick={()=> {onDoneClick(task.id)}}>{ task.done ? 'Undone' : 'Done'}</button></td> 
                     <td><button onClick={()=> {onDelete(task.id)} }>Delete</button></td>
                 </tr>))}
                     

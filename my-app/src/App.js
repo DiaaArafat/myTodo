@@ -7,6 +7,7 @@ import { useState } from 'react';
 
 
 const App = () => {
+  
   const [showTasks,setShowTasks]=useState(true)
   const [tasks, setTasks] = useState([
     {
@@ -33,6 +34,21 @@ const showOrHide = () => {
   
   setShowTasks(!showTasks)
 }
+const dpneUnDone = (id) => {
+const newState = tasks.map(obj => {
+
+    if (obj.id === id) {
+      if(obj.done)
+      return {...obj, done: false}
+      else
+      return {...obj, done: true}
+    }
+    return obj
+  }
+    
+    )
+    setTasks(newState)
+}
 
 
   return (
@@ -45,7 +61,7 @@ const showOrHide = () => {
     </header>    
     <AddTask onClick = {addTask} />
       <Search onclick={showOrHide}/>
-      {showTasks && <Tasks tasksList={tasks} onDelete={deleteTask} />}
+      {showTasks && <Tasks tasksList={tasks} onDelete={deleteTask} onDoneClick={dpneUnDone} />}
       <Footer />
     </div>
   );

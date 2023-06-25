@@ -56,7 +56,7 @@ const newState = tasks.map(obj => {
     <div className="App">
     <header>
         <h1>
-        "Todo List !"
+        Todo List !
         </h1>
     </header>    
     <AddTask onClick = {addTask} />
